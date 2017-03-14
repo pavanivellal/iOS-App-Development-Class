@@ -14,6 +14,8 @@ The app also has a setting page that lets you dynamically change your 3 favorite
 7. Henceforth, tip calculation takes place with the new setting.
 8. The bill amount, tip and total is reset every time the setting is changed.
 
+<img src="tipcalculator.gif" alt="HTML5 Icon" style="width:128px;height:128px;">
+
 
 ## Motivation
 
