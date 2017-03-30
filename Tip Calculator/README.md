@@ -8,6 +8,7 @@ The app also has a setting page that lets you dynamically change your 3 favorite
 1. App accepts Decimal input and calculates tip and total value.
 2. The setting screen takes 3 integer inputs for 3 favorite tip percentage settings.
 3. There is a “Save” button who’s action is set to stores the input values as an NSArray object of 3 values in NSUserDefaults.
+5. Upon successful saving, the app notifies the user by showing a popup confirmation message using UIAlertController.
 4. The “Cancel” button resets the input fields and cancel’s action.
 5. After the data comes back to the ViewController from the SettingController, in the “viewWillAppear” event, it reads the NSArray from the NSUserDefault. The reason for using this event is because this is triggered every time the view is displayed and changes even when the control goes to another ViewController and comes back. 
 6. The received value is then set to the UISegmentedControl title.
