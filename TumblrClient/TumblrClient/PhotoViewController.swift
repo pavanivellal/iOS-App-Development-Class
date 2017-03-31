@@ -1,27 +1,29 @@
 //
-//  ViewController.swift
+//  PhotoViewController.swift
 //  TumblrClient
 //
-//  Created by Sheshagiri Haniyur on 3/29/17.
+//  Created by Sheshagiri Haniyur on 3/30/17.
 //  Copyright © 2017 Pavani Vellal. All rights reserved.
 //
 
 import UIKit
-import AFNetworking
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PhotoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var posts: [NSDictionary] = []
     
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var photosTable: UITableView!
     
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        TableView.delegate = self
-        TableView.dataSource = self
-        
+        photosTable.delegate = self
+        photosTable.dataSource = self
+        photosTable.rowHeight = 240
 
+        
         let url = URL(string:"https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")
         let request = URLRequest(url: url!)
         let session = URLSession(
@@ -39,16 +41,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         // This is how we get the 'posts' field
                         let responseFieldDictionary = responseDictionary["response"] as! NSDictionary
                         self.posts = responseFieldDictionary["posts"] as! [NSDictionary]
+                        self.photosTable.reloadData()
                         
                     }
                 }
         });
         task.resume()
-        
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5//self.posts.count
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,6 +61,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    
-}
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotosCell") as! PhotosCell
+        
+        // Configure YourCustomCell using the outlets that you've defined.
+        
+        return cell
+    }
 
+}

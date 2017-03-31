@@ -13,16 +13,20 @@
 		19F450B71E8CA39B002D287C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F450B51E8CA39B002D287C /* Main.storyboard */; };
 		19F450B91E8CA39B002D287C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F450B81E8CA39B002D287C /* Assets.xcassets */; };
 		19F450BC1E8CA39B002D287C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F450BA1E8CA39B002D287C /* LaunchScreen.storyboard */; };
+		19F450D11E8E0284002D287C /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F450D01E8E0284002D287C /* PhotoViewController.swift */; };
+		19F450D31E8E075A002D287C /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F450D21E8E075A002D287C /* PhotosCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		19F450AE1E8CA39B002D287C /* TumblrClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumblrClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F450B11E8CA39B002D287C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19F450B31E8CA39B002D287C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		19F450B61E8CA39B002D287C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19F450B81E8CA39B002D287C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19F450BB1E8CA39B002D287C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19F450BD1E8CA39B002D287C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19F450CE1E8E00E3002D287C /* TumblrClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumblrClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19F450D01E8E0284002D287C /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		19F450D21E8E075A002D287C /* PhotosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
 		2590E9534CBDE04BCA82F8E0 /* Pods-TumblrClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumblrClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TumblrClient/Pods-TumblrClient.debug.xcconfig"; sourceTree = "<group>"; };
 		BB7E26BE8C4D81E0451CD9AB /* Pods_TumblrClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumblrClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F155AE21351D7B9F5BD6C813 /* Pods-TumblrClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumblrClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-TumblrClient/Pods-TumblrClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -44,23 +48,16 @@
 			isa = PBXGroup;
 			children = (
 				19F450B01E8CA39B002D287C /* TumblrClient */,
-				19F450AF1E8CA39B002D287C /* Products */,
 				D449DCC66301BC3850311ABB /* Pods */,
 				7F850D940E11C0ECB7C2364F /* Frameworks */,
+				19F450CE1E8E00E3002D287C /* TumblrClient.app */,
 			);
-			sourceTree = "<group>";
-		};
-		19F450AF1E8CA39B002D287C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				19F450AE1E8CA39B002D287C /* TumblrClient.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		19F450B01E8CA39B002D287C /* TumblrClient */ = {
 			isa = PBXGroup;
 			children = (
+				19F450CF1E8E01E2002D287C /* View Controllers */,
 				19F450B11E8CA39B002D287C /* AppDelegate.swift */,
 				19F450B31E8CA39B002D287C /* ViewController.swift */,
 				19F450B51E8CA39B002D287C /* Main.storyboard */,
@@ -69,6 +66,15 @@
 				19F450BD1E8CA39B002D287C /* Info.plist */,
 			);
 			path = TumblrClient;
+			sourceTree = "<group>";
+		};
+		19F450CF1E8E01E2002D287C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				19F450D01E8E0284002D287C /* PhotoViewController.swift */,
+				19F450D21E8E075A002D287C /* PhotosCell.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		7F850D940E11C0ECB7C2364F /* Frameworks */ = {
@@ -108,7 +114,7 @@
 			);
 			name = TumblrClient;
 			productName = TumblrClient;
-			productReference = 19F450AE1E8CA39B002D287C /* TumblrClient.app */;
+			productReference = 19F450CE1E8E00E3002D287C /* TumblrClient.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -137,7 +143,7 @@
 				Base,
 			);
 			mainGroup = 19F450A51E8CA39A002D287C;
-			productRefGroup = 19F450AF1E8CA39B002D287C /* Products */;
+			productRefGroup = 19F450A51E8CA39A002D287C;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -213,7 +219,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				19F450B41E8CA39B002D287C /* ViewController.swift in Sources */,
+				19F450D31E8E075A002D287C /* PhotosCell.swift in Sources */,
 				19F450B21E8CA39B002D287C /* AppDelegate.swift in Sources */,
+				19F450D11E8E0284002D287C /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +385,7 @@
 				19F450C21E8CA39B002D287C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
