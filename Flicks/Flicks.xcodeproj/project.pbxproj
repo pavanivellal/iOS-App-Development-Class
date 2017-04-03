@@ -13,8 +13,13 @@
 		193158FC1E8F0665002C45B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 193158FB1E8F0665002C45B3 /* Assets.xcassets */; };
 		193158FF1E8F0665002C45B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193158FD1E8F0665002C45B3 /* LaunchScreen.storyboard */; };
 		193159071E8F1F39002C45B3 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193159061E8F1F39002C45B3 /* MovieTableViewCell.swift */; };
+		199BF37C1E91DABA00A45A00 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199BF37B1E91DABA00A45A00 /* ViewController2.swift */; };
 		19E5A8E61E8FA1B30082C46E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5A8E51E8FA1B30082C46E /* DetailViewController.swift */; };
 		19F1701A1E91AACB00062D7D /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F170191E91AACB00062D7D /* AlertViewController.swift */; };
+		19F170221E91C7C100062D7D /* NowPlaying.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F170211E91C7C100062D7D /* NowPlaying.png */; };
+		19F170241E91C7F300062D7D /* starrated.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F170231E91C7F300062D7D /* starrated.png */; };
+		19F170261E91C95900062D7D /* iconmonstr-video-8-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F170251E91C95900062D7D /* iconmonstr-video-8-32.png */; };
+		19F170281E91C99400062D7D /* iconmonstr-star-1-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F170271E91C99400062D7D /* iconmonstr-star-1-32.png */; };
 		8503523F47BDA2093EA7069F /* Pods_Flicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D484E0E6BCFA6AC7DF52C8 /* Pods_Flicks.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +32,13 @@
 		193158FE1E8F0665002C45B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		193159001E8F0665002C45B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		193159061E8F1F39002C45B3 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		199BF37B1E91DABA00A45A00 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		19E5A8E51E8FA1B30082C46E /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		19F170191E91AACB00062D7D /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		19F170211E91C7C100062D7D /* NowPlaying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NowPlaying.png; sourceTree = "<group>"; };
+		19F170231E91C7F300062D7D /* starrated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starrated.png; sourceTree = "<group>"; };
+		19F170251E91C95900062D7D /* iconmonstr-video-8-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-video-8-32.png"; sourceTree = "<group>"; };
+		19F170271E91C99400062D7D /* iconmonstr-star-1-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-star-1-32.png"; sourceTree = "<group>"; };
 		65D484E0E6BCFA6AC7DF52C8 /* Pods_Flicks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flicks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B037D25FACF55DA6B9CCEF6E /* Pods-Flicks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.release.xcconfig"; sourceTree = "<group>"; };
 		E9A36B6816D2439F180BF4D6 /* Pods-Flicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +81,10 @@
 				193158F41E8F0665002C45B3 /* AppDelegate.swift */,
 				193158F81E8F0665002C45B3 /* Main.storyboard */,
 				193158FB1E8F0665002C45B3 /* Assets.xcassets */,
+				19F170211E91C7C100062D7D /* NowPlaying.png */,
+				19F170251E91C95900062D7D /* iconmonstr-video-8-32.png */,
+				19F170271E91C99400062D7D /* iconmonstr-star-1-32.png */,
+				19F170231E91C7F300062D7D /* starrated.png */,
 				193158FD1E8F0665002C45B3 /* LaunchScreen.storyboard */,
 				193159001E8F0665002C45B3 /* Info.plist */,
 			);
@@ -84,6 +98,7 @@
 				193159061E8F1F39002C45B3 /* MovieTableViewCell.swift */,
 				19E5A8E51E8FA1B30082C46E /* DetailViewController.swift */,
 				19F170191E91AACB00062D7D /* AlertViewController.swift */,
+				199BF37B1E91DABA00A45A00 /* ViewController2.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -169,8 +184,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				193158FF1E8F0665002C45B3 /* LaunchScreen.storyboard in Resources */,
+				19F170241E91C7F300062D7D /* starrated.png in Resources */,
 				193158FC1E8F0665002C45B3 /* Assets.xcassets in Resources */,
+				19F170261E91C95900062D7D /* iconmonstr-video-8-32.png in Resources */,
 				193158FA1E8F0665002C45B3 /* Main.storyboard in Resources */,
+				19F170281E91C99400062D7D /* iconmonstr-star-1-32.png in Resources */,
+				19F170221E91C7C100062D7D /* NowPlaying.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +253,7 @@
 				193159071E8F1F39002C45B3 /* MovieTableViewCell.swift in Sources */,
 				19F1701A1E91AACB00062D7D /* AlertViewController.swift in Sources */,
 				19E5A8E61E8FA1B30082C46E /* DetailViewController.swift in Sources */,
+				199BF37C1E91DABA00A45A00 /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

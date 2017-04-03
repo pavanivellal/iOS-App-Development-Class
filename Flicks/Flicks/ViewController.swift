@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var posts: NSArray = []
     var imgBaseUrl = "http://image.tmdb.org/t/p/w500/"
+    let refreshControl = UIRefreshControl()
+
     
     
     override func viewDidLoad() {
@@ -38,8 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         
 //        UI Refresh Control on Pull
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshControlAction(_refreshControl:)), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         movieTable.insertSubview(refreshControl, at: 0)
 //        End of UI Refresh Control on pull
 
@@ -148,7 +149,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     }
     
-    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+    func pullToRefresh(_: UIRefreshControl) {
         
         let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=82b549df043e03f91f4b72175a978fb4")
         let request = URLRequest(url: url!)
@@ -175,13 +176,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         self.posts = responseFieldDictionary
                         self.movieTable.reloadData()
                         VHUD.dismiss(1.0, 1.0)
-                        refreshControl.endRefreshing()
+                        self.refreshControl.endRefreshing()
                         
                     }
                 }
         });
         task.resume()
     }
+    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        self.movieTable.reloadData()
+//    }
 
 }
 
