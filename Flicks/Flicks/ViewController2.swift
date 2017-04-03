@@ -115,7 +115,7 @@ class ViewController2: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func loadTabContents()
     {
-        let url = URL(string:"https://api.themoviedb.org/3/movie/top_rated?api_key=82b549df043e03f91f4b72175a978fb4")
+        let url = URL(string:"https://api.themoviedb.com/3/movie/top_rated?api_key=82b549df043e03f91f4b72175a978fb4")
         let request = URLRequest(url: url!)
         let session = URLSession(
             configuration: URLSessionConfiguration.default,

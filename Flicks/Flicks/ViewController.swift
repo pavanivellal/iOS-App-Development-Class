@@ -80,14 +80,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        self.performSegue(withIdentifier: "DetailViewController2", sender: self)
+        self.performSegue(withIdentifier: "DetailViewController", sender: self)
         self.movieTable.deselectRow(at: indexPath, animated: true)
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if (segue.identifier == "DetailViewController2")
+        if (segue.identifier == "DetailViewController")
         {
             let upcoming: DetailViewController = segue.destination as! DetailViewController
             
@@ -117,7 +117,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func loadTabContents()
     {
-        let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=82b549df043e03f91f4b72175a978fb4")
+        let url = URL(string:"https://api.themoviedb.com/3/movie/now_playing?api_key=82b549df043e03f91f4b72175a978fb4")
         let request = URLRequest(url: url!)
         let session = URLSession(
             configuration: URLSessionConfiguration.default,
