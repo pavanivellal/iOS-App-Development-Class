@@ -29,12 +29,27 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="TAc-Ct-sdT">
+                                    <rect key="frame" x="0.0" y="228" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⚠️ Network Error!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FSI-dJ-f5K">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="200" id="RMk-Y8-FOj" customClass="MovieTableViewCell" customModule="Flicks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RMk-Y8-FOj" id="mCs-Yq-flP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="UMV-2c-gCW">
@@ -71,8 +86,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="Mru-QA-Ha1"/>
                     <connections>
+                        <outlet property="NetworkError" destination="TAc-Ct-sdT" id="rPd-6d-LvP"/>
                         <outlet property="movieTable" destination="YK8-jP-mOU" id="Xd3-6L-7Z4"/>
                         <outlet property="navBar1" destination="Mru-QA-Ha1" id="LBl-fa-Wbb"/>
+                        <outlet property="networkErrorMessage" destination="FSI-dJ-f5K" id="EL3-tq-afl"/>
                         <segue destination="r8Q-bm-df4" kind="push" identifier="DetailViewController" id="hfP-OO-EC3"/>
                     </connections>
                 </viewController>
@@ -215,6 +232,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="TVF-MQ-R62">
+                                    <rect key="frame" x="0.0" y="228" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⚠️ Network Error!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4wD-XF-a0l">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="200" id="qc9-du-orM" customClass="MovieTableViewCell" customModule="Flicks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
@@ -257,8 +289,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="3he-ct-01t"/>
                     <connections>
+                        <outlet property="NetworkError" destination="TVF-MQ-R62" id="ng1-p3-tuP"/>
                         <outlet property="movieTable" destination="gk4-pv-2UE" id="kG7-de-GW9"/>
                         <outlet property="navBar1" destination="3he-ct-01t" id="QUW-ei-m2p"/>
+                        <outlet property="networkErrorLabel" destination="4wD-XF-a0l" id="BBF-2d-tfZ"/>
                         <segue destination="r8Q-bm-df4" kind="push" identifier="DetailViewController2" id="74h-6V-Gq8"/>
                     </connections>
                 </viewController>

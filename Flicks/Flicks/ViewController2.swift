@@ -14,6 +14,8 @@ class ViewController2: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBOutlet weak var movieTable: UITableView!
     @IBOutlet weak var navBar1: UINavigationItem!
+    @IBOutlet weak var NetworkError: UIView!
+    @IBOutlet weak var networkErrorLabel: UILabel!
     
     
     lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRect(x:0, y:0, width:350, height:20))
@@ -21,8 +23,6 @@ class ViewController2: UIViewController, UITableViewDataSource, UITableViewDeleg
     var posts: NSArray = []
     var imgBaseUrl = "http://image.tmdb.org/t/p/w500/"
     let refreshControl = UIRefreshControl()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,12 +138,22 @@ class ViewController2: UIViewController, UITableViewDataSource, UITableViewDeleg
                         // This is how we get the 'posts' field
                         let responseFieldDictionary = responseDictionary["results"] as! NSArray
                         self.posts = responseFieldDictionary
+                        self.NetworkError.isHidden = true
                         self.movieTable.reloadData()
                         VHUD.dismiss(1.0, 1.0)
                         
+                    } else {
+                        // no response from api, handle with network error
+                        self.NetworkError.isHidden = false
+                        self.movieTable.bringSubview(toFront: self.NetworkError)
+                        VHUD.dismiss(1.0, 1.0)
+                        self.refreshControl.endRefreshing()
                     }
                 }
+                
         });
+        VHUD.dismiss(1.0, 1.0)
+        self.refreshControl.endRefreshing()
         task.resume()
         
         
@@ -151,38 +161,6 @@ class ViewController2: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func pullToRefresh(_: UIRefreshControl) {
         
-        let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=82b549df043e03f91f4b72175a978fb4")
-        let request = URLRequest(url: url!)
-        let session = URLSession(
-            configuration: URLSessionConfiguration.default,
-            delegate:nil,
-            delegateQueue:OperationQueue.main
-        )
-        
-        var content = VHUDContent(.loop(3.0))
-        content.shape = .circle
-        content.style = .light
-        content.background = .blur(.dark)
-        VHUD.show(content)
-        
-        let task : URLSessionDataTask = session.dataTask(
-            with: request as URLRequest,
-            completionHandler: { (data, response, error) in
-                if let data = data {
-                    if let responseDictionary = try! JSONSerialization.jsonObject(
-                        with: data, options:[]) as? NSDictionary {
-                        // This is how we get the 'posts' field
-                        let responseFieldDictionary = responseDictionary["results"] as! NSArray
-                        self.posts = responseFieldDictionary
-                        self.movieTable.reloadData()
-                        VHUD.dismiss(1.0, 1.0)
-                        self.refreshControl.endRefreshing()
-                        
-                    }
-                }
-        });
-        task.resume()
-    }
-    
+        loadTabContents()
 }
-
+}

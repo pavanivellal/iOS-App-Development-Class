@@ -16,34 +16,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var movieTable: UITableView!
     
+    @IBOutlet weak var NetworkError: UIView!
+    
+    @IBOutlet weak var networkErrorMessage: UILabel!
+    
     lazy   var searchBar:UISearchBar = UISearchBar(frame: CGRect(x:0, y:0, width:350, height:20))
     
     var posts: NSArray = []
     var imgBaseUrl = "http://image.tmdb.org/t/p/w500/"
     let refreshControl = UIRefreshControl()
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTable.delegate = self
         movieTable.dataSource = self
         movieTable.rowHeight = 110
         
-//        Embeding search bar in navigation bar
+        //        Embeding search bar in navigation bar
         searchBar.placeholder = "Search Movies"
         var leftNavBarButton = UIBarButtonItem(customView:searchBar)
         self.navBar1.leftBarButtonItem = leftNavBarButton
-//        End of search bar
+        //        End of search bar
         
-          loadTabContents()
+        loadTabContents()
         
         
-//        UI Refresh Control on Pull
+        //        UI Refresh Control on Pull
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         movieTable.insertSubview(refreshControl, at: 0)
-//        End of UI Refresh Control on pull
-
+        //        End of UI Refresh Control on pull
+        
     }
     
     
@@ -52,7 +54,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       // let cell = UITableViewCell()
+        // let cell = UITableViewCell()
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell") as! MovieTableViewCell
         let post = self.posts[indexPath.row] as? NSDictionary
         
@@ -67,25 +69,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             } else {
             }
             
-        
+            
             
         } else {
             
         }
-
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        self.performSegue(withIdentifier: "DetailViewController", sender: self)
+        self.performSegue(withIdentifier: "DetailViewController2", sender: self)
         self.movieTable.deselectRow(at: indexPath, animated: true)
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if (segue.identifier == "DetailViewController")
+        if (segue.identifier == "DetailViewController2")
         {
             let upcoming: DetailViewController = segue.destination as! DetailViewController
             
@@ -102,12 +104,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 imageUrlString = imgBaseUrl + imageUrlString!
                 upcoming.imageURLString = imageUrlString
                 
-
-  
+                
+                
             } else {
                 
             }
-
+            
         }
         
     }
@@ -138,55 +140,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         // This is how we get the 'posts' field
                         let responseFieldDictionary = responseDictionary["results"] as! NSArray
                         self.posts = responseFieldDictionary
+                        self.NetworkError.isHidden = true
                         self.movieTable.reloadData()
                         VHUD.dismiss(1.0, 1.0)
                         
+                    } else {
+                        // no response from api, handle with network error
+                        self.NetworkError.isHidden = false
+                        self.movieTable.bringSubview(toFront: self.NetworkError)
+                        VHUD.dismiss(1.0, 1.0)
+                        self.refreshControl.endRefreshing()
                     }
                 }
+            
+
         });
+        VHUD.dismiss(1.0, 1.0)
+        self.refreshControl.endRefreshing()
         task.resume()
         
-
+        
     }
     
     func pullToRefresh(_: UIRefreshControl) {
         
-        let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=82b549df043e03f91f4b72175a978fb4")
-        let request = URLRequest(url: url!)
-        let session = URLSession(
-            configuration: URLSessionConfiguration.default,
-            delegate:nil,
-            delegateQueue:OperationQueue.main
-        )
-        
-        var content = VHUDContent(.loop(3.0))
-        content.shape = .circle
-        content.style = .light
-        content.background = .blur(.dark)
-        VHUD.show(content)
-        
-        let task : URLSessionDataTask = session.dataTask(
-            with: request as URLRequest,
-            completionHandler: { (data, response, error) in
-                if let data = data {
-                    if let responseDictionary = try! JSONSerialization.jsonObject(
-                        with: data, options:[]) as? NSDictionary {
-                        // This is how we get the 'posts' field
-                        let responseFieldDictionary = responseDictionary["results"] as! NSArray
-                        self.posts = responseFieldDictionary
-                        self.movieTable.reloadData()
-                        VHUD.dismiss(1.0, 1.0)
-                        self.refreshControl.endRefreshing()
-                        
-                    }
-                }
-        });
-        task.resume()
+        loadTabContents()
     }
     
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        self.movieTable.reloadData()
-//    }
-
 }
 
+
+    
+    
