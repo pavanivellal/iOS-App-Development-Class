@@ -36,7 +36,7 @@ Here's a walkthrough of implemented user stories:
 
 Nerwork Error:
 
-<img src='images/networkError' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='images/networkError.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
